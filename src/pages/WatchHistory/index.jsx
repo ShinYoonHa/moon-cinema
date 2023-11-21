@@ -13,17 +13,15 @@ const WatchHistory = () => {
   const [query, setQuery] = useSearchParams();
   const { category } = useParams();
 
-  //본 영화의 정보를 저장할 리스트 객체
   const [watchList, setWatchList] = useState([]);
 
   const searchQuery = query.get("search") || "";
 
   useEffect(() => {
     getHistory({ Email: localStorage.email }).then((response) => {
-      // 받아온 살펴본 영화 정보를 상태에 저장합니다.
       setWatchList(response.result);
     });
-  }, [watchList]);
+  }, []);
 
   useEffect(() => {
     setPage(1);
