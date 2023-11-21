@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import { LazyMotion, domAnimation } from "framer-motion";
 
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
@@ -19,7 +19,7 @@ const PUBLIC_URL = "https://shinyoonha.github.io/moon-cinema/";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
+    <HashRouter>
       <ApiProvider api={tmdbApi}>
         <ThemeProvider>
           <GlobalContextProvider>
@@ -29,6 +29,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           </GlobalContextProvider>
         </ThemeProvider>
       </ApiProvider>
-    </BrowserRouter>
+    </HashRouter>
   </QueryClientProvider>
 );
