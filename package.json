@@ -1,9 +1,9 @@
 {
-  "name": "tmovies",
+  "name": "moon-cinema",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "author": "Sudeep Mahato",
+  "author": "moon cinema",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
