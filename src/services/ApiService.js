@@ -1,5 +1,3 @@
-import { API_BASE_URL } from "../app-config";
-
 export async function call(api, method, request) {
   let headers = new Headers({
     "Content-Type": "application/json",
@@ -12,7 +10,7 @@ export async function call(api, method, request) {
 
   let options = {
     headers: headers,
-    url: API_BASE_URL + api,
+    url: "http://172.30.74.17:8080" + api,
     method: method,
   };
 
@@ -49,7 +47,7 @@ export function call_var(api, method, request) {
 
   let options = {
     headers: headers,
-    url: API_BASE_URL + api,
+    url: "http://172.30.74.17:8080" + api,
     method: method,
   };
 
