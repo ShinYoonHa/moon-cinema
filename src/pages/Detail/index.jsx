@@ -190,11 +190,13 @@ const Detail = () => {
     Synopsis,
     Title,
   } = movieData.result[0];
+
   const backgroundStyle = {
     backgroundImage: `linear-gradient(to top, rgba(0,0,0), rgba(0,0,0,0.98),rgba(0,0,0,0.8) ,rgba(0,0,0,0.4)),url('https://image.tmdb.org/t/p/original/${ImgURL}'`,
     backgroundPosition: "top",
     backgroundSize: "cover",
   };
+
   return (
     <>
       <section className="w-full" style={backgroundStyle}>

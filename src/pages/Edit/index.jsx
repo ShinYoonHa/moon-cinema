@@ -1,20 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsEyeSlash } from "react-icons/bs";
 import { FaUserEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { edit } from "../../services/ApiService";
+import { edit, getUserInfo } from "../../services/ApiService";
+import { Loader } from "../../common";
 
 export default function Index() {
   const [showPassword, setShowPassword] = useState("password");
-  //
+  const [userInfo, setUserInfo] = useState(null);
+
+  useEffect(() => {
+    const userEmail = localStorage.getItem("email");
+    getUserInfo({ email: userEmail })
+      .then((userData) => {
+        setUserInfo(userData.result);
+      })
+      .catch((error) => {
+        console.error("Error fetching user information:", error);
+      });
+  }, []);
+
+  console.log(userInfo);
+
   const handleShowPassword = () => {
-    setShowPassword(() => {
-      if (showPassword === "password") {
-        return "text";
-      } else {
-        return "password";
-      }
-    });
+    setShowPassword((prevShowPassword) =>
+      prevShowPassword === "password" ? "text" : "password"
+    );
   };
 
   const handleSubmit = (event) => {
@@ -69,6 +80,10 @@ export default function Index() {
     </>
   );
 
+  if (!userInfo) {
+    return <Loader />;
+  }
+
   return (
     <div className="flex h-screen justify-center items-center dark:text-white mt-4">
       <div className="w-10/12 border border-gray-300 p-4 rounded-lg">
@@ -85,7 +100,7 @@ export default function Index() {
                   border-2 rounded-lg bg-gray-200"
                 type="email"
                 placeholder="이메일 입력"
-                defaultValue={localStorage.getItem("email")}
+                defaultValue={userInfo.Email}
                 readOnly
                 required
                 name="email"
@@ -115,6 +130,7 @@ export default function Index() {
                   border-2 rounded-lg"
                 type="text"
                 placeholder="이름 입력"
+                defaultValue={userInfo.UserName}
                 name="username"
               />
             </div>
@@ -127,7 +143,7 @@ export default function Index() {
                   type="radio"
                   name="gender"
                   value="1"
-                  defaultChecked
+                  defaultChecked={userInfo.Gender === 1}
                 />
                 <label
                   htmlFor="manRadio"
@@ -144,6 +160,7 @@ export default function Index() {
                   type="radio"
                   name="gender"
                   value="2"
+                  defaultChecked={userInfo.Gender === 2}
                 />
                 <label
                   htmlFor="womanRadio"
@@ -159,6 +176,7 @@ export default function Index() {
                 className="pl-2 text-gray-700 border-red-600 dark:text-white dark:bg-black border-2 rounded-lg"
                 type="text"
                 placeholder="나이 입력"
+                defaultValue={userInfo.Age}
                 name="age"
               />
             </div>
@@ -168,6 +186,7 @@ export default function Index() {
                 className="pl-2 border-red-600 dark:text-white dark:bg-black
                   border-2 rounded-lg w-24"
                 name="genre1"
+                defaultValue={userInfo.Genre1}
               >
                 {options}
               </select>
@@ -176,6 +195,7 @@ export default function Index() {
                 className="pl-2 border-red-600 dark:text-white dark:bg-black
                   border-2 rounded-lg w-24"
                 name="genre2"
+                defaultValue={userInfo.Genre2}
               >
                 {options}
               </select>
@@ -187,6 +207,7 @@ export default function Index() {
                   border-2 rounded-lg"
                 type="text"
                 placeholder="선호 배우 입력"
+                defaultValue={userInfo.Actors}
                 name="actors"
               />
             </div>
