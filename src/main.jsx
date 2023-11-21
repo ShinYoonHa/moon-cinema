@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-import { BrowserRouter, HashRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { LazyMotion, domAnimation } from "framer-motion";
 
 import { ApiProvider } from "@reduxjs/toolkit/query/react";
@@ -15,7 +15,6 @@ import App from "./App";
 import "./index.css";
 
 const queryClient = new QueryClient();
-const PUBLIC_URL = "https://shinyoonha.github.io/moon-cinema/";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>

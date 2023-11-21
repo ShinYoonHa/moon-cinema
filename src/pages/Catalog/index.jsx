@@ -81,7 +81,7 @@ const Catalog = () => {
     setPage(1);
     setIsCategoryChanged(true);
 
-    if (searchQuery) {
+    if (searchQuery.trim() !== "") {
       getSearchedMovies(searchQuery)
         .then((response) => {
           setMovieList(response.result);
@@ -92,6 +92,9 @@ const Catalog = () => {
         });
     }
   }, [category, searchQuery]);
+
+  console.log(searchQuery);
+  console.log(movieList);
 
   return (
     <>
