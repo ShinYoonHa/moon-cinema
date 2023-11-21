@@ -336,6 +336,17 @@ export async function getActorRecommendMovie(actor) {
     });
 }
 
+export async function getSearchedMovies(title) {
+  return call_var(`/MovieSelect/${title}`, "GET")
+    .then((response) => {
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error while Selecting MovieSelectByActor:", error);
+      return Promise.reject(error);
+    });
+}
+
 // 비슷한 줄거리 추천영화 조회
 export async function getSimilarRecommendMovie(info) {
   return call(`/recommend/${info}`, "GET")

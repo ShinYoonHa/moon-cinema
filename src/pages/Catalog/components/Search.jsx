@@ -10,7 +10,7 @@ const Search = ({ setQuery }) => {
     setQuery({ search });
     setSearch("");
   };
-  //
+
   return (
     <form
       className="text-[14px] lg:py-10 md:pt-9 md:pb-10 sm:pt-8 sm:pb-10  pt-6 pb-8 flex flex-row items-center justify-center"

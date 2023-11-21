@@ -13,17 +13,15 @@ const WishList = () => {
   const [query, setQuery] = useSearchParams();
   const { category } = useParams();
 
-  //본 영화의 정보를 저장할 리스트 객체
   const [wishList, setWishList] = useState([]);
 
   const searchQuery = query.get("search") || "";
 
   useEffect(() => {
     getWishList({ Email: localStorage.email }).then((response) => {
-      // 받아온 찜 리스트 정보를 상태에 저장합니다.
       setWishList(response.result);
     });
-  }, [wishList]);
+  }, []);
 
   useEffect(() => {
     setPage(1);

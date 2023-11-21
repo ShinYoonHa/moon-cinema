@@ -6,6 +6,7 @@ import { smallMaxWidth } from "../../styles";
 import {
   getActorRecommendMovie,
   getGenreRecommendMovie,
+  getSearchedMovies,
   getTopRatedMovie,
   getTopReservationMovie,
   getUserInfo,
@@ -79,6 +80,17 @@ const Catalog = () => {
   useEffect(() => {
     setPage(1);
     setIsCategoryChanged(true);
+
+    if (searchQuery) {
+      getSearchedMovies(searchQuery)
+        .then((response) => {
+          setMovieList(response.result);
+          setPageTitle("search_results");
+        })
+        .catch((error) => {
+          console.error("Error while getting searched movies:", error);
+        });
+    }
   }, [category, searchQuery]);
 
   return (
@@ -88,7 +100,7 @@ const Catalog = () => {
         <Search setQuery={setQuery} />
 
         <div className="flex flex-wrap xs:gap-4 gap-[14px] justify-center">
-          {movieList?.map((movie, index) => (
+          {movieList.map((movie, index) => (
             <div
               key={index}
               className="flex flex-col xs:gap-4 gap-2 xs:max-w-[170px] max-w-[124px] rounded-lg lg:mb-6 md:mb-5 sm:mb-4 mb-[10px]"
