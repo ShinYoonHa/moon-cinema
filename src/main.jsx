@@ -19,7 +19,7 @@ const PUBLIC_URL = "https://shinyoonha.github.io/moon-cinema/";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <QueryClientProvider client={queryClient}>
-    <BrowserRouter basename={PUBLIC_URL}>
+    <BrowserRouter>
       <ApiProvider api={tmdbApi}>
         <ThemeProvider>
           <GlobalContextProvider>
