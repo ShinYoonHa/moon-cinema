@@ -15,9 +15,7 @@ const Casts = ({ cast }) => {
         variants={fadeDown}
         className="flex flex-col justify-start gap-2"
       >
-        <h4 className="text-gray-300 md:text-[12px] sm:text-[10.75px] text-[10px] md:max-w-[64px] text-center font-semibold sm:-mt-0 leading-snug max-w-[40px]">
-          {cast}
-        </h4>
+        <h4>{cast}</h4>
       </m.figure>
     </m.div>
   );

@@ -26,6 +26,8 @@ const Catalog = () => {
 
   const searchQuery = query.get("search") || "";
 
+  const moviesPerPage = 8 + (page - 1) * 8;
+
   useEffect(() => {
     // 사용자 정보를 가져오는 API 호출
     getUserInfo({
@@ -99,11 +101,11 @@ const Catalog = () => {
   return (
     <>
       <CatalogHeader category={pageTitle} />
-      <section className={`${smallMaxWidth} `}>
+      <section className={`${smallMaxWidth} h-screen`}>
         <Search setQuery={setQuery} />
 
         <div className="flex flex-wrap xs:gap-4 gap-[14px] justify-center">
-          {movieList.map((movie, index) => (
+          {movieList.slice(0, moviesPerPage).map((movie, index) => (
             <div
               key={index}
               className="flex flex-col xs:gap-4 gap-2 xs:max-w-[170px] max-w-[124px] rounded-lg lg:mb-6 md:mb-5 sm:mb-4 mb-[10px]"

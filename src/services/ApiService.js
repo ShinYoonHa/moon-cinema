@@ -10,7 +10,7 @@ export async function call(api, method, request) {
 
   let options = {
     headers: headers,
-    url: "https://172.30.74.17:8080" + api,
+    url: "http://172.30.74.17:8080" + api,
     method: method,
   };
 
@@ -47,7 +47,7 @@ export function call_var(api, method, request) {
 
   let options = {
     headers: headers,
-    url: "https://172.30.74.17:8080" + api,
+    url: "http://172.30.74.17:8080" + api,
     method: method,
   };
 

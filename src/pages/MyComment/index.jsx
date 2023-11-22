@@ -2,13 +2,15 @@ import { useState } from "react";
 import { BsCheckLg, BsFillPencilFill } from "react-icons/bs";
 import { AiFillDelete } from "react-icons/ai";
 import { BiSolidCameraMovie } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { call, commentDelete, commentUpdate } from "../../services/ApiService";
 import { Error, Loader } from "../../common";
 import { Rating } from "@mui/material";
 
 const MyComment = () => {
+  const navigate = useNavigate();
+
   const [editingCommentId, setEditingCommentId] = useState(null);
   const [editedComment, setEditedComment] = useState("");
   const [editedRating, setEditedRating] = useState(2.5);
@@ -76,7 +78,7 @@ const MyComment = () => {
             <li key={comment.CommentID} className="border-b pb-4">
               <div className="flex items-center justify-between">
                 <div className="flex">
-                  <Link className="flex" to="/movie/951491">
+                  <button className="flex">
                     <BiSolidCameraMovie
                       className="text-2xl mr-2 mb-1"
                       color="#CA3A31"
@@ -84,7 +86,7 @@ const MyComment = () => {
                     <p className="font-semibold text-lg text-gray-800 dark:text-white">
                       '{comment.Title}'
                     </p>
-                  </Link>
+                  </button>
                   {editingCommentId === comment.CommentID ? (
                     <Rating
                       className="ml-3"
