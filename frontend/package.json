@@ -1,0 +1,64 @@
+{
+  "name": "moon-cinema",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "author": "moon cinema",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "start": "vite dev --host 0.0.0.0",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.14.15",
+    "@reduxjs/toolkit": "^1.9.2",
+    "@tanstack/react-query": "^5.8.1",
+    "@types/react-lazy-load-image-component": "^1.5.3",
+    "framer-motion": "^10.16.5",
+    "gh-pages": "^6.1.0",
+    "history": "^5.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
+    "react-lazy-load-image-component": "^1.6.0",
+    "react-loading-skeleton": "^3.1.0",
+    "react-modal": "^3.16.1",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.6.2",
+    "swiper": "^8.4.7"
+  },
+  "proxy": "http://172.30.74.17:8080",
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
+    "@types/react-router-dom": "^5.3.3",
+    "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.13",
+    "eslint": "^8.42.0",
+    "eslint-config-react-app": "^7.0.1",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4",
+    "typescript": "^4.9.3",
+    "vite": "^4.0.0",
+    "vite-plugin-eslint": "^1.8.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "homepage": "http://shinyoonha.github.io/moon-cinema/"
+}
